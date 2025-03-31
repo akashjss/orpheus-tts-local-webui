@@ -10,6 +10,7 @@ A standalone Text-to-Speech application using the [Orpheus TTS model](https://hu
 - 💾 Save audio to WAV files
 - 🎨 Modern Gradio web interface
 - 🔧 Adjustable generation parameters (temperature, top_p, repetition penalty)
+- 😊 Emotive speech generation with natural expressions
 
 ## Sample Audio
 
@@ -46,6 +47,19 @@ The application will automatically:
    - Repetition Penalty: Controls repetition (1.0-2.0)
 5. Click "Generate Speech" to create the audio
 6. Play the generated audio directly in the browser or download it
+
+### Sample Prompts
+
+#### Regular Text-to-Speech
+```
+Welcome to our presentation. Today, we'll be discussing the latest developments in artificial intelligence and machine learning.
+```
+
+#### Emotive Text-to-Speech
+```
+<giggle>Oh, that's hilarious!</giggle> I can't believe what just happened. <laugh>This is the funniest thing I've seen all day!</laugh>
+<sigh>But seriously though,</sigh> we need to focus on the task at hand. <gasp>Look at what we've accomplished!</gasp>
+```
 
 ## Available Voices
 
