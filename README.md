@@ -11,6 +11,11 @@ A standalone Text-to-Speech application using the [Orpheus TTS model](https://hu
 - 🎨 Modern Gradio web interface
 - 🔧 Adjustable generation parameters (temperature, top_p, repetition penalty)
 
+## Sample Audio
+
+Listen to a sample of the generated speech:
+[Sample Audio](https://voipnuggets.wordpress.com/wp-content/uploads/2025/03/tmpxxe176lm-1.wav)
+
 ## Quick Setup
 
 1. Install Python 3.8 or higher
