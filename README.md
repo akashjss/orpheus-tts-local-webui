@@ -1,46 +1,46 @@
 # Orpheus-TTS-Local
 
-A lightweight client for running [Orpheus TTS](https://huggingface.co/canopylabs/orpheus-3b-0.1-ft) locally using LM Studio API.
+A standalone Text-to-Speech application using the [Orpheus TTS model](https://huggingface.co/canopylabs/orpheus-3b-0.1-ft) with a modern Gradio interface.
 
 ## Features
 
 - 🎧 High-quality Text-to-Speech using the Orpheus TTS model
-- 💻 Completely local - no cloud API keys needed
+- 💻 Completely standalone - no external services or API keys needed
 - 🔊 Multiple voice options (tara, leah, jess, leo, dan, mia, zac, zoe)
 - 💾 Save audio to WAV files
+- 🎨 Modern Gradio web interface
+- 🔧 Adjustable generation parameters (temperature, top_p, repetition penalty)
 
 ## Quick Setup
 
-1. Install [LM Studio](https://lmstudio.ai/) 
-2. Download the [Orpheus TTS model (orpheus-3b-0.1-ft-q4_k_m.gguf)](https://huggingface.co/isaiahbjork/orpheus-3b-0.1-ft-Q4_K_M-GGUF) in LM Studio
-3. Load the Orpheus model in LM Studio
-4. Start the local server in LM Studio (default: http://127.0.0.1:1234)
-5. Install dependencies:
-   ```
+1. Install Python 3.8 or higher
+2. Install dependencies:
+   ```bash
    python3 -m venv venv
-   source venv/bin/activate
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
    ```
-6. Run the script:
+3. Run the application:
+   ```bash
+   python gradio_orpheus.py
    ```
-   python gguf_orpheus.py --text "Hello, this is a test" --voice tara
-   ```
+
+The application will automatically:
+- Download the Orpheus TTS model on first run
+- Download and initialize the SNAC audio codec
+- Start the Gradio web interface
 
 ## Usage
 
-```
-python gguf_orpheus.py --text "Your text here" --voice tara --output "output.wav"
-```
-
-### Options
-
-- `--text`: The text to convert to speech
-- `--voice`: The voice to use (default: tara)
-- `--output`: Output WAV file path (default: auto-generated filename)
-- `--list-voices`: Show available voices
-- `--temperature`: Temperature for generation (default: 0.6)
-- `--top_p`: Top-p sampling parameter (default: 0.9)
-- `--repetition_penalty`: Repetition penalty (default: 1.1)
+1. Open your web browser and navigate to the URL shown in the terminal (usually http://127.0.0.1:7860)
+2. Enter the text you want to convert to speech
+3. Select a voice from the dropdown menu
+4. Adjust generation parameters if desired:
+   - Temperature: Controls randomness (0.0-1.0)
+   - Top P: Controls diversity (0.0-1.0)
+   - Repetition Penalty: Controls repetition (1.0-2.0)
+5. Click "Generate Speech" to create the audio
+6. Play the generated audio directly in the browser or download it
 
 ## Available Voices
 
@@ -53,7 +53,8 @@ python gguf_orpheus.py --text "Your text here" --voice tara --output "output.wav
 - zac
 - zoe
 
-## Emotion
+## Emotion Tags
+
 You can add emotion to the speech by adding the following tags:
 ```xml
 <giggle>
@@ -66,6 +67,21 @@ You can add emotion to the speech by adding the following tags:
 <yawn>
 <gasp>
 ```
+
+## Technical Details
+
+This implementation:
+- Uses `llama-cpp-python` to run the Orpheus model locally
+- Uses the SNAC neural audio codec for high-quality audio generation
+- Processes tokens in chunks of 28 for optimal audio quality
+- Supports both CPU and GPU (CUDA/MPS) acceleration
+
+## Requirements
+
+- Python 3.8 or higher
+- 8GB RAM minimum (16GB recommended)
+- CUDA-capable GPU (optional, for faster generation)
+- See `requirements.txt` for Python package dependencies
 
 ## License
 
