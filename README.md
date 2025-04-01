@@ -2,6 +2,9 @@
 
 A standalone Text-to-Speech application using the [Orpheus TTS model](https://huggingface.co/canopylabs/orpheus-3b-0.1-ft) with a modern Gradio interface.
 
+## UI Screenshots:
+![Gradio UI](assets/Orpheus-Gradio-UI)
+
 ## Features
 
 - 🎧 High-quality Text-to-Speech using the Orpheus TTS model
